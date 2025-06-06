@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sera Liz David - Biodata</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #8e44ad, #3498db);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .biodata-card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      color: #333;
+    }
+
+    .biodata-card h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .info-group {
+      margin-bottom: 15px;
+    }
+
+    .info-group strong {
+      display: inline-block;
+      width: 120px;
+      color: #555;
+    }
+
+    .section-title {
+      margin-top: 30px;
+      font-size: 20px;
+      color: #2c3e50;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #2980b9;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #1c5980;
+    }
+
+    @media (max-width: 600px) {
+      .info-group strong {
+        width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="biodata-card">
+    <h1>Sera Liz David</h1>
+    
+    <div class="info-group"><strong>Age:</strong> <span id="age">20</span></div>
+    <div class="info-group"><strong>DOB:</strong> <span id="dob">24/11/2004</span></div>
+    <div class="info-group"><strong>Gender:</strong> <span id="gender">Female</span></div>
+    <div class="info-group"><strong>Course:</strong> <span id="course">B.Tech</span></div>
+    <div class="info-group"><strong>College:</strong> <span id="college">Amal Jyothi College of Engineering, Kanjirappally</span></div>
+    <div class="info-group"><strong>Email:</strong> <span id="email">xyz@gmai.com</span></div>
+    <div class="info-group"><strong>Phone:</strong> <span id="phone">12356789</span></div>
+    <div class="info-group"><strong>Address:</strong> <span id="address">Kottayam, Kerala, India</span></div>
+
+    <div class="section-title">Skills</div>
+    <ul id="skills">
+      <li>Web Development</li>
+      <li>Problem Solving</li>
+      <li>Communication</li>
+    </ul>
+
+    <div class="section-title">Hobbies</div>
+    <ul id="hobbies">
+      <li>Reading</li>
+      <li>Drawing</li>
+      <li>Listening to Music</li>
+    </ul>
+
+    <button onclick="editDetails()">Edit Info</button>
+  </div>
+
+  <script>
+    function editDetails() {
+      const fields = [
+        { id: "age", label: "Enter your age:" },
+        { id: "dob", label: "Enter your date of birth (DD/MM/YYYY):" },
+        { id: "gender", label: "Enter your gender:" },
+        { id: "course", label: "Enter your course:" },
+        { id: "college", label: "Enter your college:" },
+        { id: "email", label: "Enter your email:" },
+        { id: "phone", label: "Enter your phone number:" },
+        { id: "address", label: "Enter your address:" }
+      ];
+
+      fields.forEach(field => {
+        const value = prompt(field.label, document.getElementById(field.id).textContent);
+        if (value) {
+          document.getElementById(field.id).textContent = value;
+        }
+      });
+
+      const skills = prompt("Enter your skills (comma separated):", "Web Development, Problem Solving, Communication");
+      if (skills) {
+        document.getElementById("skills").innerHTML = skills.split(",").map(s => `<li>${s.trim()}</li>`).join('');
+      }
+
+      const hobbies = prompt("Enter your hobbies (comma separated):", "Reading, Drawing, Listening to Music");
+      if (hobbies) {
+        document.getElementById("hobbies").innerHTML = hobbies.split(",").map(h => `<li>${h.trim()}</li>`).join('');
+      }
+    }
+  </script>
+</body>
+</html>
